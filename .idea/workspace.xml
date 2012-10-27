@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f92e877e-5dec-4287-9527-a05fc60df587" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/twitter4j.properties" afterPath="$PROJECT_DIR$/src/main/resources/twitter4j.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/social/TwitterMessages.java" afterPath="$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/social/TwitterMessages.java" />
     </list>
     <ignored path="SplashScreen.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,13 +70,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TwitterMessages.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="TwitterMessages.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/social/TwitterMessages.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="29" selection-start="415" selection-end="415" vertical-scroll-proportion="0.0">
+            <state line="7" column="35" selection-start="200" selection-end="200" vertical-scroll-proportion="-1.4539748">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#695#703#0" expanded="true" />
+                <element signature="e#651#659#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -100,10 +100,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="twitter4j.properties" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="twitter4j.properties" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/twitter4j.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="66" selection-start="250" selection-end="250" vertical-scroll-proportion="0.12569316">
+            <state line="4" column="66" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -171,8 +171,8 @@
         <option value="$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/social/SocialMessages.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/social/TwitterMessageRunner.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/social/TwitterMessages.java" />
         <option value="$PROJECT_DIR$/src/main/resources/twitter4j.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/social/TwitterMessages.java" />
       </list>
     </option>
   </component>
@@ -669,10 +669,10 @@
     <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.327252" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.327252" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990878" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3990878" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -681,9 +681,9 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24585636" sideWeight="0.217695" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19423692" sideWeight="0.672748" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19423692" sideWeight="0.6009122" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14087513" sideWeight="0.672748" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14087513" sideWeight="0.6009122" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32611173" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -769,13 +769,6 @@
         <state line="3" column="34" selection-start="29" selection-end="29" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/highscores/PlayerHighScoreInformation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="68" selection-start="491" selection-end="491" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/social/SocialMessages.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="7" selection-start="84" selection-end="84" vertical-scroll-proportion="0.0">
@@ -787,16 +780,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="31" selection-start="827" selection-end="827" vertical-scroll-proportion="0.56732893">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/social/TwitterMessages.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="29" selection-start="415" selection-end="415" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#695#703#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -821,8 +804,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/twitter4j.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="66" selection-start="250" selection-end="250" vertical-scroll-proportion="0.12569316">
+        <state line="4" column="66" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/highscores/PlayerHighScoreInformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="68" selection-start="491" selection-end="491" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/social/TwitterMessages.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="35" selection-start="200" selection-end="200" vertical-scroll-proportion="-1.4539748">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#651#659#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

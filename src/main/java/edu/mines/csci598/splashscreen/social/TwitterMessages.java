@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
-import twitter4j.conf.ConfigurationBuilder;
 
 public class TwitterMessages implements SocialMessages {
     private final Logger _log = Logger.getLogger(TwitterMessages.class.getName());
@@ -28,9 +27,9 @@ public class TwitterMessages implements SocialMessages {
             if (!authorizeAccess())
                 return messageList;
 
-            ResponseList<DirectMessage> twitterMessages = _twitter.getDirectMessages();
-            for (DirectMessage message : twitterMessages) {
-                messageList.add(message.getRecipientScreenName() + " " + message.getText());
+            ResponseList<Status> twitterStatuses = _twitter.getMentions();
+            for (Status status : twitterStatuses) {
+                messageList.add("@"+ status.getUser().getScreenName() + " - " + status.getText());
             }
         }
         catch (TwitterException te) {
