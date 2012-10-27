@@ -1,4 +1,4 @@
-package highscores;
+package edu.mines.csci598.splashscreen.highscores;
 
 import java.awt.*;
 import java.sql.Timestamp;

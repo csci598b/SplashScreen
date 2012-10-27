@@ -1,4 +1,4 @@
-package social;
+package edu.mines.csci598.splashscreen.social;
 import net.unto.twitter.Api;
 import net.unto.twitter.TwitterProtos;
 

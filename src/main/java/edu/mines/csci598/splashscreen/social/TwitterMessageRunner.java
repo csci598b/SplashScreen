@@ -1,4 +1,4 @@
-package social;
+package edu.mines.csci598.splashscreen.social;
 
 public class TwitterMessageRunner {
 
