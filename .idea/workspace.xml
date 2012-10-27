@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f92e877e-5dec-4287-9527-a05fc60df587" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/social/SocialMessages.java" afterPath="$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/social/SocialMessages.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/social/TwitterMessageRunner.java" afterPath="$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/social/TwitterMessageRunner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/social/TwitterMessages.java" afterPath="$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/social/TwitterMessages.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/twitter4j.properties" afterPath="$PROJECT_DIR$/src/main/resources/twitter4j.properties" />
     </list>
     <ignored path="SplashScreen.iws" />
@@ -107,7 +103,7 @@
       <file leaf-file-name="twitter4j.properties" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/twitter4j.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="65" selection-start="249" selection-end="249" vertical-scroll-proportion="0.12569316">
+            <state line="4" column="66" selection-start="250" selection-end="250" vertical-scroll-proportion="0.12569316">
               <folding />
             </state>
           </provider>
@@ -825,7 +821,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/twitter4j.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="65" selection-start="249" selection-end="249" vertical-scroll-proportion="0.12569316">
+        <state line="4" column="66" selection-start="250" selection-end="250" vertical-scroll-proportion="0.12569316">
           <folding />
         </state>
       </provider>
