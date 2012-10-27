@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f92e877e-5dec-4287-9527-a05fc60df587" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/edu/mines/csci598/splashscreen/highscores/PlayerHighScoreSerializationTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/highscores/PlayerHighScoreInformation.java" afterPath="$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/highscores/PlayerHighScoreInformation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/highscores/SerializePlayerInformation.java" afterPath="$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/highscores/SerializePlayerInformation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/edu/mines/csci598/splashscreen/highscores/PlayerHighScoreSerializationTest.java" afterPath="$PROJECT_DIR$/src/test/java/edu/mines/csci598/splashscreen/highscores/PlayerHighScoreSerializationTest.java" />
     </list>
     <ignored path="SplashScreen.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -96,10 +96,8 @@
       <file leaf-file-name="PlayerHighScoreSerializationTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/edu/mines/csci598/splashscreen/highscores/PlayerHighScoreSerializationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="18" selection-start="339" selection-end="339" vertical-scroll-proportion="0.49790794">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="9" column="39" selection-start="206" selection-end="206" vertical-scroll-proportion="0.32008368">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -107,7 +105,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="18" selection-start="764" selection-end="764" vertical-scroll-proportion="0.0">
+            <state line="35" column="33" selection-start="1284" selection-end="1284" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -125,7 +123,7 @@
       <file leaf-file-name="PlayerHighScoreInformation.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/highscores/PlayerHighScoreInformation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="29" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0">
+            <state line="25" column="33" selection-start="867" selection-end="867" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -175,7 +173,6 @@
         <option value="$PROJECT_DIR$/src/java/social/TwitterMessages.java" />
         <option value="$PROJECT_DIR$/src/java/social/TwitterMessageRunner.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/twitter4j.properties" />
         <option value="$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/social/SocialMessages.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/social/TwitterMessageRunner.java" />
@@ -185,6 +182,7 @@
         <option value="$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/highscores/PlayerImage.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/highscores/PlayerHighScoreInformation.java" />
         <option value="$PROJECT_DIR$/src/test/java/edu/mines/csci598/splashscreen/highscores/PlayerHighScoreSerializationTest.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -772,26 +770,26 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.327252" sideWeight="0.49786553" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3990878" sideWeight="0.49786553" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3990878" sideWeight="0.49573106" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3990878" sideWeight="0.49839914" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3990878" sideWeight="0.50053364" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280943" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295325" sideWeight="0.49786553" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295325" sideWeight="0.49573106" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24585636" sideWeight="0.217695" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19743863" sideWeight="0.6009122" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14087513" sideWeight="0.6009122" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32611173" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32611173" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -882,13 +880,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="18" selection-start="764" selection-end="764" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/assemble/exe.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="21" selection-start="189" selection-end="189" vertical-scroll-proportion="0.0" />
@@ -936,19 +927,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/mines/csci598/splashscreen/highscores/PlayerHighScoreInformation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="29" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0">
+        <state line="25" column="33" selection-start="867" selection-end="867" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="33" selection-start="1284" selection-end="1284" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/edu/mines/csci598/splashscreen/highscores/PlayerHighScoreSerializationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="18" selection-start="339" selection-end="339" vertical-scroll-proportion="0.49790794">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="9" column="39" selection-start="206" selection-end="206" vertical-scroll-proportion="0.32008368">
+          <folding />
         </state>
       </provider>
     </entry>
