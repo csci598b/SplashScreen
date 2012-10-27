@@ -9,7 +9,7 @@ public class TwitterMessages implements SocialMessages {
         return null;
     }
 
-    private void retrieveAllMessages() {
+    public void retrieveAllMessages() {
         Api api = Api.builder().build();
 
         for (TwitterProtos.Status status : api.publicTimeline().build().get()) {
