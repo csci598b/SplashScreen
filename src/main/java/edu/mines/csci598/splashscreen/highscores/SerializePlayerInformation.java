@@ -6,7 +6,7 @@ import java.util.ArrayList;
 //Andrew Suter-Morris
 public class SerializePlayerInformation {
 
-    public ArrayList<PlayerHighScoreInformation> retrievePlayerHighScoreInformation(String fileName) {
+    public static ArrayList<PlayerHighScoreInformation> retrievePlayerHighScoreInformation(String fileName) {
         Object deserializedHighScores = null;
         try {
             ObjectInputStream oin = new ObjectInputStream(new FileInputStream(fileName));
@@ -19,7 +19,7 @@ public class SerializePlayerInformation {
         return (ArrayList<PlayerHighScoreInformation>) deserializedHighScores;
     }
 
-    public void storePlayerHighScoreInformation(ArrayList<PlayerHighScoreInformation> highScores, String fileName) {
+    public static void storePlayerHighScoreInformation(ArrayList<PlayerHighScoreInformation> highScores, String fileName) {
         try {
             ObjectOutputStream oout = new ObjectOutputStream(new FileOutputStream(fileName));
             oout.writeObject(highScores);

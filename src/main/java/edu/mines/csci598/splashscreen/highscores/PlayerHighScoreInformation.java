@@ -12,12 +12,19 @@ public class PlayerHighScoreInformation implements Serializable {
     private double _playerScore;
     private Timestamp _playerTime;
 
-    public Image getPlayerImage() {
+    public PlayerHighScoreInformation(String playerInitials, double playerScore, Image playerImage, Timestamp playerTime) {
+        _playerInitials = playerInitials;
+        _playerScore = playerScore;
+        _playerImage = playerImage;
+        _playerTime = playerTime;
+    }
+
+    public Image getPlayerPlayerImage() {
         return _playerImage;
     }
 
-    public void setPlayerImage(Image playerImage) {
-        this._playerImage = playerImage;
+    public void setPlayerPlayerImage(Image playerPlayerImage) {
+        this._playerImage = playerPlayerImage;
     }
 
     public String getPlayerInitials() {
