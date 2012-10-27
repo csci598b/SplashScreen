@@ -1,9 +1,19 @@
 package social;
+import net.unto.twitter.Api;
+import net.unto.twitter.TwitterProtos;
 
 public class TwitterMessages implements SocialMessages {
 
     @Override
-    public String retrieveMessage() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    public String retrieveLatestMessage() {
+        return null;
+    }
+
+    private void retrieveAllMessages() {
+        Api api = Api.builder().build();
+
+        for (TwitterProtos.Status status : api.publicTimeline().build().get()) {
+            System.out.println(String.format("%s wrote '%s'", status.getUser().getName(), status.getText()));
+        }
     }
 }
