@@ -1,15 +1,16 @@
 package edu.mines.csci598.splashscreen.highscores;
 
 import java.awt.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class PlayerHighScoreInformation {
+//Andrew Suter-Morris
+public class PlayerHighScoreInformation implements Serializable {
 
     private Image _playerImage;
     private String _playerInitials;
     private double _playerScore;
     private Timestamp _playerTime;
-
 
     public Image getPlayerImage() {
         return _playerImage;

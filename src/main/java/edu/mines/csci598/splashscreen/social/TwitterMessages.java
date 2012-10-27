@@ -7,7 +7,9 @@ import java.util.logging.Logger;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
 
+//Andrew Suter-Morris
 public class TwitterMessages implements SocialMessages {
+
     private final Logger _log = Logger.getLogger(TwitterMessages.class.getName());
     private Twitter _twitter;
 
@@ -17,7 +19,7 @@ public class TwitterMessages implements SocialMessages {
 
     @Override
     public String retrieveLatestMessage() {
-        return null;
+        return retrieveAllMessages().get(0);
     }
 
     public ArrayList<String> retrieveAllMessages() {
@@ -44,19 +46,7 @@ public class TwitterMessages implements SocialMessages {
         try {
             RequestToken requestToken = _twitter.getOAuthRequestToken();
             AccessToken accessToken = null;
-            while (null == accessToken) {
-                _log.info("Open the following URL and grant access to your account:");
-                _log.info(requestToken.getAuthorizationURL());
-                try {
-                    accessToken = _twitter.getOAuthAccessToken(requestToken);
-                } catch (TwitterException te) {
-                    if (401 == te.getStatusCode()) {
-                        _log.severe("Unable to get the access token.");
-                    } else {
-                        te.printStackTrace();
-                    }
-                }
-            }
+            accessToken = getAccessToken(requestToken, accessToken);
             _log.info("Got access token.");
             _log.info("Access token: " + accessToken.getToken());
             _log.info("Access token secret: " + accessToken.getTokenSecret());
@@ -67,5 +57,23 @@ public class TwitterMessages implements SocialMessages {
             }
         }
         return true;
+    }
+
+    private AccessToken getAccessToken(RequestToken requestToken, AccessToken accessToken) {
+        while (null == accessToken) {
+            _log.info("Open the following URL and grant access to your account:");
+            _log.info(requestToken.getAuthorizationURL());
+            try {
+                accessToken = _twitter.getOAuthAccessToken(requestToken);
+            }
+            catch (TwitterException te) {
+                if (401 == te.getStatusCode()) {
+                    _log.severe("Unable to get the access token.");
+                } else {
+                    te.printStackTrace();
+                }
+            }
+        }
+        return accessToken;
     }
 }
