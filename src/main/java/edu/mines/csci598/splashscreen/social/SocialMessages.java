@@ -1,6 +1,8 @@
 package edu.mines.csci598.splashscreen.social;
 
+import java.util.ArrayList;
+
 public interface SocialMessages {
     String retrieveLatestMessage();
-    void retrieveAllMessages();
+    ArrayList<String> retrieveAllMessages();
 }

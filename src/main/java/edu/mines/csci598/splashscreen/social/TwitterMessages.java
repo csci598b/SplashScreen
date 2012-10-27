@@ -1,12 +1,12 @@
 package edu.mines.csci598.splashscreen.social;
-import net.unto.twitter.Api;
-import net.unto.twitter.TwitterProtos;
 import twitter4j.*;
 
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
+import twitter4j.conf.ConfigurationBuilder;
 
 public class TwitterMessages implements SocialMessages {
     private final Logger _log = Logger.getLogger(TwitterMessages.class.getName());
@@ -21,20 +21,24 @@ public class TwitterMessages implements SocialMessages {
         return null;
     }
 
-    public void retrieveAllMessages() {
+    public ArrayList<String> retrieveAllMessages() {
+        ArrayList<String> messageList = new ArrayList<String>();
+
         try {
-            if (!authorizeAccess()) return;
+            if (!authorizeAccess())
+                return messageList;
+
             ResponseList<DirectMessage> twitterMessages = _twitter.getDirectMessages();
+            for (DirectMessage message : twitterMessages) {
+                messageList.add(message.getRecipientScreenName() + " " + message.getText());
+            }
         }
         catch (TwitterException te) {
             te.printStackTrace();
             _log.severe("Failed to get timeline: " + te.getMessage());
         }
-        Api api = Api.builder().build();
 
-        for (TwitterProtos.Status status : api.publicTimeline().build().get()) {
-            System.out.println(String.format("%s wrote '%s'", status.getUser().getName(), status.getText()));
-        }
+        return messageList;
     }
 
     private boolean authorizeAccess() throws TwitterException {
@@ -42,8 +46,8 @@ public class TwitterMessages implements SocialMessages {
             RequestToken requestToken = _twitter.getOAuthRequestToken();
             AccessToken accessToken = null;
             while (null == accessToken) {
-                _log.fine("Open the following URL and grant access to your account:");
-                _log.fine(requestToken.getAuthorizationURL());
+                _log.info("Open the following URL and grant access to your account:");
+                _log.info(requestToken.getAuthorizationURL());
                 try {
                     accessToken = _twitter.getOAuthAccessToken(requestToken);
                 } catch (TwitterException te) {
