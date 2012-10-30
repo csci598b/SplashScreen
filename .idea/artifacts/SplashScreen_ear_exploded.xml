@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="exploded-ear" name="SplashScreen:ear exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/SplashScreen_ear_exploded</output-path>
-    <root id="root">
-      <element id="javaee-facet-resources" facet="SplashScreen/javaeeApplication/javaEEApplication" />
-    </root>
-  </artifact>
-</component>
