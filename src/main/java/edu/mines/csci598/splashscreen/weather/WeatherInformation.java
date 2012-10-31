@@ -17,6 +17,17 @@ public class WeatherInformation {
     private int _pressure;
     private int _humidity;
 
+    public WeatherInformation(int windSpeed, int visibility, int windDegree, int cloudCover, int precipitation, int temperature, int pressure, int humidity) {
+        _windDegree = windDegree;
+        _windSpeed = windSpeed;
+        _cloudCover = cloudCover;
+        _precipitation = precipitation;
+        _temperature = temperature;
+        _pressure = pressure;
+        _humidity = humidity;
+        _visibility = visibility;
+    }
+
     public int getWindSpeed() {
         return _windSpeed;
     }

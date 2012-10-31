@@ -13,7 +13,7 @@ public class TwitterMessages implements SocialMessages {
     private final Logger _log = Logger.getLogger(TwitterMessages.class.getName());
     private Twitter _twitter;
 
-    TwitterMessages() {
+    public TwitterMessages() {
         _twitter = new TwitterFactory().getInstance();
     }
 
