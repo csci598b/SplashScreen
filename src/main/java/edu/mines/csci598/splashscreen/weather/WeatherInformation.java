@@ -8,16 +8,17 @@ package edu.mines.csci598.splashscreen.weather;
  * To change this template use File | Settings | File Templates.
  */
 public class WeatherInformation {
+
     private int _windSpeed;
     private int _visibility;
     private int _windDegree;
     private int _cloudCover;
-    private int _precipitation;
+    private double _precipitation;
     private int _temperature;
     private int _pressure;
     private int _humidity;
 
-    public WeatherInformation(int windSpeed, int visibility, int windDegree, int cloudCover, int precipitation, int temperature, int pressure, int humidity) {
+    public WeatherInformation(int windSpeed, int visibility, int windDegree, int cloudCover, double precipitation, int temperature, int pressure, int humidity) {
         _windDegree = windDegree;
         _windSpeed = windSpeed;
         _cloudCover = cloudCover;
@@ -60,11 +61,11 @@ public class WeatherInformation {
         this._cloudCover = cloudCover;
     }
 
-    public int getPrecipitation() {
+    public double getPrecipitation() {
         return _precipitation;
     }
 
-    public void setPrecipitation(int precipitation) {
+    public void setPrecipitation(double precipitation) {
         this._precipitation = precipitation;
     }
 
@@ -90,5 +91,17 @@ public class WeatherInformation {
 
     public void setHumidity(int humidity) {
         this._humidity = humidity;
+    }
+
+    @Override
+    public String toString() {
+        return "Wind Speed (MPH): " + _windSpeed + "\n" +
+                "Wind Degree (DIR): " + _windDegree + "\n" +
+                "Cloud Cover: " + _cloudCover + "\n" +
+                "Precipitation (mm): " + _precipitation + "\n" +
+                "Temperature (C): " + _temperature + "\n" +
+                "Pressure: " + _pressure + "\n" +
+                "Humidity: " + _humidity + "\n" +
+                "Visibility: " + _visibility + "\n";
     }
 }

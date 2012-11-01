@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,14 +19,14 @@ public class PlayerHighScoreSerializationTest {
 
     private ArrayList<PlayerHighScoreInformation> _scores;
     private ImageIcon _playerImage;
-    private Timestamp _playerTime;
+    private long _playerTime;
     private double _playerScore;
     private String _playerInitials;
 
     @Before
     public void setup() throws IOException {
         _playerImage = new ImageIcon(getClass().getResource("recycle.jpg"));
-        _playerTime = new Timestamp(new Date().getTime());
+        _playerTime = new Date().getTime();
         _playerScore = 50;
         _playerInitials = "ATM";
     }
