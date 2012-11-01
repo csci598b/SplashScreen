@@ -3,6 +3,7 @@ package edu.mines.csci598.splashscreen.weather;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
@@ -35,7 +36,7 @@ public class LocalAreaWeather {
             DocumentBuilder docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             Document doc = docBuilder.parse(weatherConnection.getInputStream());
             doc.getDocumentElement().normalize();
-            Element rootElement = doc.getDocumentElement();
+            NodeList conditions = doc.getElementsByTagName("current_condition");
 
 
             String windDegree;
@@ -46,6 +47,16 @@ public class LocalAreaWeather {
             String pressure;
             String humidity;
             String visibility;
+
+            for (int node = 0; node < conditions.getLength(); node++) {
+                Node condition = conditions.item(node);
+
+                if (condition.getNodeType() == Node.ELEMENT_NODE) {
+                    Element element = (Element)condition;
+
+                    System.out.println("C_TEMP: " + getTagValue("temp_C", element));
+                }
+            }
             System.out.println(doc);
         }
         catch (IOException ioe) {
@@ -59,5 +70,13 @@ public class LocalAreaWeather {
         }
 
         return null;
+    }
+
+    private static String getTagValue(String sTag, Element eElement) {
+        NodeList nlList = eElement.getElementsByTagName(sTag).item(0).getChildNodes();
+
+        Node nValue = (Node) nlList.item(0);
+
+        return nValue.getNodeValue();
     }
 }
