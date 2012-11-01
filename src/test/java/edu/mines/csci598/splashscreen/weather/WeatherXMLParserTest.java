@@ -1,21 +1,14 @@
 package edu.mines.csci598.splashscreen.weather;
 
-import edu.mines.csci598.splashscreen.highscores.PlayerHighScoreInformation;
-import edu.mines.csci598.splashscreen.highscores.SerializePlayerInformation;
 import org.junit.Before;
 import org.junit.Test;
-import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
-import javax.swing.*;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.ArrayList;
-import java.util.Date;
+
+import static junit.framework.Assert.assertEquals;
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,23 +18,7 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 public class WeatherXMLParserTest {
-    private ArrayList<PlayerHighScoreInformation> _scores;
-    private ImageIcon _playerImage;
-    private long _playerTime;
-    private double _playerScore;
-    private String _playerInitials;
-
-    String windDegree;
-    String windSpeed;
-    String cloudCover;
-    String precipitation;
-    String temperature;
-    String pressure;
-    String humidity;
-    String visibility;
     InputStream weatherStream;
-    URL weatherUrl;
-    URLConnection weatherConnection;
 
     @Before
     public void setup() throws IOException {
@@ -51,5 +28,13 @@ public class WeatherXMLParserTest {
     @Test
     public void testParseXMLFile() throws IOException, SAXException, ParserConfigurationException {
         WeatherInformation information = LocalAreaWeather.parseWeatherXML(weatherStream);
+        assertEquals(11, information.getTemperature());
+        assertEquals(0.0, information.getPrecipitation());
+        assertEquals(47, information.getHumidity());
+        assertEquals(360, information.getWindDegree());
+        assertEquals(9, information.getWindSpeed());
+        assertEquals(10, information.getVisibility());
+        assertEquals(1019, information.getPressure());
+        assertEquals(0, information.getCloudCover());
     }
 }
