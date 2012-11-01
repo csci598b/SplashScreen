@@ -1,10 +1,13 @@
 package edu.mines.csci598.splashscreen;
 
+import edu.mines.csci598.splashscreen.highscores.PlayerHighScoreInformation;
+import edu.mines.csci598.splashscreen.highscores.SerializePlayerInformation;
 import edu.mines.csci598.splashscreen.social.TwitterMessages;
 import edu.mines.csci598.splashscreen.weather.LocalAreaWeather;
 import edu.mines.csci598.splashscreen.weather.WeatherInformation;
 
 import javax.swing.*;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -26,8 +29,16 @@ public class TestApp extends JFrame {
         JLabel label = new JLabel(getTwitterMessage());
         panel.add(label);
         label = new JLabel();
-        label.setText(convertToMultiline(getWeatherInformation().toString()));
+        label.setText(convertToHtml(getWeatherInformation().toString()));
         panel.add(label);
+
+        for (PlayerHighScoreInformation player : getPlayerHighScores()) {
+            label = new JLabel();
+            label.setText(player.getPlayerInitials() + " " + player.getPlayerScore() + " " + player.getPlayerTime());
+            panel.add(label);
+            label = new JLabel(player.getPlayerImage());
+            panel.add(label);
+        }
         setTitle("Test App");
         setSize(500, 500);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -52,8 +63,12 @@ public class TestApp extends JFrame {
         return LocalAreaWeather.retrieveWeatherInformation();
     }
 
-    public static String convertToMultiline(String orig)
+    private static String convertToHtml(String text)
     {
-        return "<html>" + orig.replaceAll("\n", "<br>");
+        return "<html>" + text.replaceAll("\n", "<br>");
+    }
+
+    private List<PlayerHighScoreInformation> getPlayerHighScores() {
+        return SerializePlayerInformation.retrievePlayerHighScoreInformation("testMultiplePlayer.dat");
     }
 }

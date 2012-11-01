@@ -26,7 +26,7 @@ public class PlayerHighScoreInformation implements Serializable {
         _playerTime = playerTime;
     }
 
-    public ImageIcon getPlayerPlayerImage() {
+    public ImageIcon getPlayerImage() {
         return _playerImage;
     }
 
