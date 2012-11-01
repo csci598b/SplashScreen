@@ -12,12 +12,12 @@ public class WeatherInformation {
     private int _visibility;
     private int _windDegree;
     private int _cloudCover;
-    private int _precipitation;
+    private double _precipitation;
     private int _temperature;
     private int _pressure;
     private int _humidity;
 
-    public WeatherInformation(int windSpeed, int visibility, int windDegree, int cloudCover, int precipitation, int temperature, int pressure, int humidity) {
+    public WeatherInformation(int windSpeed, int visibility, int windDegree, int cloudCover, double precipitation, int temperature, int pressure, int humidity) {
         _windDegree = windDegree;
         _windSpeed = windSpeed;
         _cloudCover = cloudCover;
@@ -60,11 +60,11 @@ public class WeatherInformation {
         this._cloudCover = cloudCover;
     }
 
-    public int getPrecipitation() {
+    public double getPrecipitation() {
         return _precipitation;
     }
 
-    public void setPrecipitation(int precipitation) {
+    public void setPrecipitation(double precipitation) {
         this._precipitation = precipitation;
     }
 

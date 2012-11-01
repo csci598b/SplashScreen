@@ -50,6 +50,6 @@ public class WeatherXMLParserTest {
 
     @Test
     public void testParseXMLFile() throws IOException, SAXException, ParserConfigurationException {
-        Document doc = LocalAreaWeather.parseWeatherXML(weatherStream);
+        WeatherInformation information = LocalAreaWeather.parseWeatherXML(weatherStream);
     }
 }
