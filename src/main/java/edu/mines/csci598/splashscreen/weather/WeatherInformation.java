@@ -8,6 +8,7 @@ package edu.mines.csci598.splashscreen.weather;
  * To change this template use File | Settings | File Templates.
  */
 public class WeatherInformation {
+
     private int _windSpeed;
     private int _visibility;
     private int _windDegree;
@@ -90,5 +91,17 @@ public class WeatherInformation {
 
     public void setHumidity(int humidity) {
         this._humidity = humidity;
+    }
+
+    @Override
+    public String toString() {
+        return "Wind Speed (MPH): " + _windSpeed + "\n" +
+                "Wind Degree (DIR): " + _windDegree + "\n" +
+                "Cloud Cover: " + _cloudCover + "\n" +
+                "Precipitation (mm): " + _precipitation + "\n" +
+                "Temperature (C): " + _temperature + "\n" +
+                "Pressure: " + _pressure + "\n" +
+                "Humidity: " + _humidity + "\n" +
+                "Visibility: " + _visibility + "\n";
     }
 }

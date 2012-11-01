@@ -1,6 +1,8 @@
 package edu.mines.csci598.splashscreen;
 
 import edu.mines.csci598.splashscreen.social.TwitterMessages;
+import edu.mines.csci598.splashscreen.weather.LocalAreaWeather;
+import edu.mines.csci598.splashscreen.weather.WeatherInformation;
 
 import javax.swing.*;
 
@@ -23,6 +25,9 @@ public class TestApp extends JFrame {
 
         JLabel label = new JLabel(getTwitterMessage());
         panel.add(label);
+        label = new JLabel();
+        label.setText(convertToMultiline(getWeatherInformation().toString()));
+        panel.add(label);
         setTitle("Test App");
         setSize(500, 500);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -36,13 +41,19 @@ public class TestApp extends JFrame {
                 app.setVisible(true);
             }
         });
-        TwitterMessages messenger = new TwitterMessages();
-        System.out.println(messenger.retrieveAllMessages());
-        System.out.println(messenger.retrieveLatestMessage());
     }
 
     private String getTwitterMessage() {
         TwitterMessages messages = new TwitterMessages();
         return messages.retrieveLatestMessage();
+    }
+
+    private WeatherInformation getWeatherInformation() {
+        return LocalAreaWeather.retrieveWeatherInformation();
+    }
+
+    public static String convertToMultiline(String orig)
+    {
+        return "<html>" + orig.replaceAll("\n", "<br>");
     }
 }
