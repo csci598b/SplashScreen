@@ -12,6 +12,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -33,30 +34,8 @@ public class LocalAreaWeather {
         try {
             URL weatherUrl = new URL("http://free.worldweatheronline.com/feed/weather.ashx?key="+API_KEY+"&q="+LOCAL_ZIP+"&num_of_days=1&format=xml");
             URLConnection weatherConnection = weatherUrl.openConnection();
-            DocumentBuilder docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            Document doc = docBuilder.parse(weatherConnection.getInputStream());
-            doc.getDocumentElement().normalize();
-            NodeList conditions = doc.getElementsByTagName("current_condition");
-
-
-            String windDegree;
-            String windSpeed;
-            String cloudCover;
-            String precipitation;
-            String temperature;
-            String pressure;
-            String humidity;
-            String visibility;
-
-            for (int node = 0; node < conditions.getLength(); node++) {
-                Node condition = conditions.item(node);
-
-                if (condition.getNodeType() == Node.ELEMENT_NODE) {
-                    Element element = (Element)condition;
-
-                    System.out.println("C_TEMP: " + getTagValue("temp_C", element));
-                }
-            }
+            InputStream weatherStream = weatherConnection.getInputStream();
+            Document doc = parseWeatherXML(weatherStream);
             System.out.println(doc);
         }
         catch (IOException ioe) {
@@ -70,6 +49,34 @@ public class LocalAreaWeather {
         }
 
         return null;
+    }
+
+    public static Document parseWeatherXML(InputStream weatherStream) throws ParserConfigurationException, SAXException, IOException {
+        DocumentBuilder docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+        Document doc = docBuilder.parse(weatherStream);
+        doc.getDocumentElement().normalize();
+        NodeList conditions = doc.getElementsByTagName("current_condition");
+
+
+        String windDegree;
+        String windSpeed;
+        String cloudCover;
+        String precipitation;
+        String temperature;
+        String pressure;
+        String humidity;
+        String visibility;
+
+        for (int node = 0; node < conditions.getLength(); node++) {
+            Node condition = conditions.item(node);
+
+            if (condition.getNodeType() == Node.ELEMENT_NODE) {
+                Element element = (Element)condition;
+
+                System.out.println("C_TEMP: " + getTagValue("temp_C", element));
+            }
+        }
+        return doc;
     }
 
     private static String getTagValue(String sTag, Element eElement) {

@@ -1,5 +1,22 @@
 package edu.mines.csci598.splashscreen.weather;
 
+import edu.mines.csci598.splashscreen.highscores.PlayerHighScoreInformation;
+import edu.mines.csci598.splashscreen.highscores.SerializePlayerInformation;
+import org.junit.Before;
+import org.junit.Test;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import javax.swing.*;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Andrew
@@ -8,12 +25,31 @@ package edu.mines.csci598.splashscreen.weather;
  * To change this template use File | Settings | File Templates.
  */
 public class WeatherXMLParserTest {
-    private static WeatherXMLParserTest ourInstance = new WeatherXMLParserTest();
+    private ArrayList<PlayerHighScoreInformation> _scores;
+    private ImageIcon _playerImage;
+    private long _playerTime;
+    private double _playerScore;
+    private String _playerInitials;
 
-    public static WeatherXMLParserTest getInstance() {
-        return ourInstance;
+    String windDegree;
+    String windSpeed;
+    String cloudCover;
+    String precipitation;
+    String temperature;
+    String pressure;
+    String humidity;
+    String visibility;
+    InputStream weatherStream;
+    URL weatherUrl;
+    URLConnection weatherConnection;
+
+    @Before
+    public void setup() throws IOException {
+        weatherStream = getClass().getResourceAsStream("weather.xml");
     }
 
-    private WeatherXMLParserTest() {
+    @Test
+    public void testParseXMLFile() throws IOException, SAXException, ParserConfigurationException {
+        Document doc = LocalAreaWeather.parseWeatherXML(weatherStream);
     }
 }
