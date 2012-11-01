@@ -1,7 +1,8 @@
 package edu.mines.csci598.splashscreen.weather;
 
-import org.jdom.Element;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
@@ -34,6 +35,17 @@ public class LocalAreaWeather {
             DocumentBuilder docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             Document doc = docBuilder.parse(weatherConnection.getInputStream());
             doc.getDocumentElement().normalize();
+            Element rootElement = doc.getDocumentElement();
+
+
+            String windDegree;
+            String windSpeed;
+            String cloudCover;
+            String precipitation;
+            String temperature;
+            String pressure;
+            String humidity;
+            String visibility;
             System.out.println(doc);
         }
         catch (IOException ioe) {
