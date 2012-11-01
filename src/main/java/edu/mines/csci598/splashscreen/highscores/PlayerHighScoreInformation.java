@@ -9,7 +9,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.util.Comparator;
 
 //Andrew Suter-Morris
 public class PlayerHighScoreInformation implements Serializable {
@@ -17,9 +17,9 @@ public class PlayerHighScoreInformation implements Serializable {
     private ImageIcon _playerImage;
     private String _playerInitials;
     private double _playerScore;
-    private Timestamp _playerTime;
+    private long _playerTime;
 
-    public PlayerHighScoreInformation(String playerInitials, double playerScore, ImageIcon playerImage, Timestamp playerTime) {
+    public PlayerHighScoreInformation(String playerInitials, double playerScore, ImageIcon playerImage, long playerTime) {
         _playerInitials = playerInitials;
         _playerScore = playerScore;
         _playerImage = playerImage;
@@ -50,11 +50,24 @@ public class PlayerHighScoreInformation implements Serializable {
         this._playerScore = playerScore;
     }
 
-    public Timestamp getPlayerTime() {
+    public long getPlayerTime() {
         return _playerTime;
     }
 
-    public void set_playerTime(Timestamp playerTime) {
+    public void setPlayerTime(long playerTime) {
         this._playerTime = playerTime;
     }
+
+
+    public static Comparator<PlayerHighScoreInformation> playerInitialsComporator
+            = new Comparator<PlayerHighScoreInformation>() {
+
+        public int compare(PlayerHighScoreInformation playerInformation1, PlayerHighScoreInformation playerInformation2) {
+
+            String initials1 = playerInformation1.getPlayerInitials();
+            String initials2 = playerInformation2.getPlayerInitials();
+            return initials1.compareTo(initials2);
+        }
+
+    };
 }
