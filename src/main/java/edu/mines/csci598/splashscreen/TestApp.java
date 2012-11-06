@@ -7,6 +7,7 @@ import edu.mines.csci598.splashscreen.weather.LocalAreaWeather;
 import edu.mines.csci598.splashscreen.weather.WeatherInformation;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.List;
 
 /**
