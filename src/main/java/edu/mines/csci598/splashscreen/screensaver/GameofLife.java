@@ -29,8 +29,6 @@ public class GameofLife  extends JFrame implements ActionListener {
             }
         }
 
-
-
         JPanel panel = new JPanel(new GridLayout(nbRow, nbCol, 1, 1));
         panel.setBackground(Color.BLACK);
         panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
