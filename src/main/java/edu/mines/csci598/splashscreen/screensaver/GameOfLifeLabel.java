@@ -15,58 +15,48 @@ public class GameOfLifeLabel extends JLabel implements MouseListener {
     private GameOfLifeLabel[] neighbour = new GameOfLifeLabel[8];
 
     GameOfLifeLabel() {
-        state = newState = 0;			// Dead
-        setOpaque(true);				// so color will be showed
+        state = newState = 0;
+        setOpaque(true);
         setBackground(color[0]);
-        addMouseListener(this);			// to select new LIVE cells
+        addMouseListener(this);
         this.setPreferredSize(dim);
     }
 
     void addNeighbour(GameOfLifeLabel n) {
         neighbour[howManyNeighbor++] = n;
     }
-    // to see if I should live or not
+
     void checkState() {
-        // number alive around
         int howManyLive = 0;
-        // see the state of my neighbour
         for(int i = 0; i < howManyNeighbor; i++)
             howManyLive += neighbour[i].state;
         // newState
-        if(state == 1) {				// if alive
-            if(howManyLive < 2)				// 1.Any live cell with fewer than two live neighbours dies
+        if(state == 1) {
+            if(howManyLive < 2)
                 newState = 0;
-            if(howManyLive > 3)				// 2.Any live cell with more than three live neighbours dies
+            if(howManyLive > 3)
                 newState = 0;
         }
         else {
-            if(howManyLive == 3)			// 4.Any dead cell with exactly three live neighbours becomes a live cell
+            if(howManyLive == 3)
                 newState = 1;
         }
     }
-    // after the run switch the state to new state
+
     void updateState() {
-        if(state != newState) {		// do the test to avoid re-setting same color for nothing
+        if(state != newState) {
             state = newState;
             setBackground(color[state]);
         }
     }
 
-    @Override
-    public void mouseClicked(MouseEvent arg0) {
-    }
-    // if the mouse enter a cell and it is down we make the cell alive
     public void mouseEntered(MouseEvent arg0) {
         if(mouseDown) {
             state = newState = 1;
             setBackground(color[1]);
         }
     }
-    @Override
-    public void mouseExited(MouseEvent arg0) {
-    }
-    // if the mouse is pressed on a cell you register the fact that it is down
-    // and make that cell alive
+
     public void mousePressed(MouseEvent arg0) {
         mouseDown = true;
         state = newState = 1;
@@ -76,4 +66,12 @@ public class GameOfLifeLabel extends JLabel implements MouseListener {
     public void mouseReleased(MouseEvent arg0) {
         mouseDown = false;
     }
+
+    @Override
+    public void mouseExited(MouseEvent arg0) {
+    }
+    @Override
+    public void mouseClicked(MouseEvent arg0) {
+    }
+
 }
