@@ -50,6 +50,11 @@ public class GameOfLifeLabel extends JLabel implements MouseListener {
         }
     }
 
+    void setState() {
+        state = 1;
+        setBackground(color[state]);
+    }
+
     public void mouseEntered(MouseEvent arg0) {
         if(mouseDown) {
             state = newState = 1;

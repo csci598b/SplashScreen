@@ -2,6 +2,7 @@ package edu.mines.csci598.splashscreen.screensaver;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Random;
 
 import javax.swing.*;
 
@@ -28,6 +29,8 @@ public class GameofLife  extends JFrame implements ActionListener {
             }
         }
 
+
+
         JPanel panel = new JPanel(new GridLayout(nbRow, nbCol, 1, 1));
         panel.setBackground(Color.BLACK);
         panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -44,6 +47,16 @@ public class GameofLife  extends JFrame implements ActionListener {
                 _cells[r][c].addNeighbour(_cells[r+1][c-1]); 	// South West
                 _cells[r][c].addNeighbour(_cells[r+1][c+1]); 	// South East
             }
+        }
+
+        int gridSize = NUM_COLS * NUM_ROWS;
+        int numRandomElements = gridSize / 5;
+        Random rand = new Random();
+        for (int i = 0; i < numRandomElements; i++) {
+            int randomNum = rand.nextInt(gridSize + 1);
+            int xCoord = randomNum / 50;
+            int yCoord = randomNum % 50;
+            _cells[xCoord][yCoord].setState();
         }
 
         add(panel, BorderLayout.CENTER);
