@@ -2,14 +2,13 @@ package edu.mines.csci598.splashscreen.graphics;
 
 import edu.mines.csci598.splashscreen.highscores.PlayerHighScoreInformation;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class HighScoreScreen extends JPanel {
+public class HighScoreScreen implements ScreensaverSection {
 	
 	private static final int DIVISION_PIXELS_FROM_RIGHT = 300;
 	
@@ -29,28 +28,13 @@ public class HighScoreScreen extends JPanel {
 	private ArrayList<PlayerHighScoreInformation> top10Scores;
 	private int selectedScore;
 	private Timer scoreSwitch;
-	
+    private Point topLeft;
+    private Point bottomRight;
+    private UpdateScreenCallback callback;
+
 	public HighScoreScreen() {
 		top10Scores = getTop10Scores();
 		selectedScore = 0;
-		
-		scoreSwitch = new Timer();
-		scoreSwitch.scheduleAtFixedRate(new TimerTask() {
-			@Override
-			public void run() {
-				selectedScore = (selectedScore + 1) % top10Scores.size();
-				HighScoreScreen.this.updateUI();
-			}
-		}, TIMER_DELAY, TIMER_DELAY);
-	}
-	
-	@Override
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		
-		drawDivision(g);
-		drawScoresList(top10Scores, selectedScore, g);
-		drawScore(top10Scores.get(selectedScore), g);
 	}
 	
 	private ArrayList<PlayerHighScoreInformation> getTop10Scores() {
@@ -70,8 +54,8 @@ public class HighScoreScreen extends JPanel {
 	}
 	
 	private void drawDivision(Graphics g) {
-		int height = this.getHeight();
-		int width = this.getWidth();
+		int height = bottomRight.y - topLeft.y;
+		int width = bottomRight.x - topLeft.x;
 		
 		int topLeftX = 0;
 		int topLeftY = 0;
@@ -101,9 +85,9 @@ public class HighScoreScreen extends JPanel {
 		final int MIN_PADDING_BETWEEN = 10;
 		final int SCORE_BOX_HEIGHT = 60;
 		final int SCORE_BOX_INNER_LEFT_RIGHT_PADDING = 10;
-		
-		int height = this.getHeight();
-		int width = this.getWidth();
+
+        int height = bottomRight.y - topLeft.y;
+        int width = bottomRight.x - topLeft.x;
 		
 		int neededHeight = MARGIN_TOP_BOTTOM * 2 + totalScores * SCORE_BOX_HEIGHT + (totalScores - 1) * MIN_PADDING_BETWEEN;
 		int extraHeight = height - neededHeight;
@@ -150,9 +134,9 @@ public class HighScoreScreen extends JPanel {
 		final int PICTURE_WIDTH = 300;
 		final int FRAME_PADDING = 20;
 		final int SCORE_PADDING = 40;
-		
-		int height = this.getHeight();
-		int width = this.getWidth();
+
+        int height = bottomRight.y - topLeft.y;
+        int width = bottomRight.x - topLeft.x;
 		
 		int topPadding = (height - PICTURE_HEIGHT) / 2;
 		int leftPadding = ((width - DIVISION_PIXELS_FROM_RIGHT) - PICTURE_WIDTH) / 2;
@@ -175,22 +159,38 @@ public class HighScoreScreen extends JPanel {
 		g.setColor(SELECTED_TEXT_COLOR);
 		g.drawString(score.getPlayerInitials(), leftFontPadding, topFontPadding);
 	}
-	
+
 	private Polygon getRectangle(int topLeftX, int topLeftY, int bottomRightX, int bottomRightY) {
 		int[] xPoints = new int[] {topLeftX, topLeftX, bottomRightX, bottomRightX};
 		int[] yPoints = new int[] {topLeftY, bottomRightY, bottomRightY, topLeftY};
 		return new Polygon(xPoints, yPoints, 4);
 	}
 
-    public static void main(String[] args) {
-        JFrame mainFrame = new JFrame();
-        mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        mainFrame.setSize(1280, 720);
+    @Override
+    public void initialize(Point topLeft, Point bottomRight, UpdateScreenCallback callback) {
+        this.topLeft = topLeft;
+        this.bottomRight = bottomRight;
+        this.callback = callback;
 
-        HighScoreScreen highScoreScreen = new HighScoreScreen();
-        mainFrame.add(highScoreScreen);
-
-        mainFrame.setVisible(true);
+        scoreSwitch = new Timer();
+        scoreSwitch.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                selectedScore = (selectedScore + 1) % top10Scores.size();
+                HighScoreScreen.this.callback.updateScreen();
+            }
+        }, TIMER_DELAY, TIMER_DELAY);
     }
 
+    @Override
+    public void draw(Graphics g) {
+        drawDivision(g);
+        drawScoresList(top10Scores, selectedScore, g);
+        drawScore(top10Scores.get(selectedScore), g);
+    }
+
+    @Override
+    public void stop() {
+        scoreSwitch.cancel();
+    }
 }
