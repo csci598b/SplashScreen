@@ -6,7 +6,7 @@ import java.util.Random;
 
 import javax.swing.*;
 
-public class GameofLife  extends JFrame implements ActionListener {
+public class GameofLife  extends JPanel implements ActionListener {
 
     private GameOfLifeLabel[][] _cells;
     private Timer _timer;
@@ -20,7 +20,6 @@ public class GameofLife  extends JFrame implements ActionListener {
 
 
     GameofLife(int nbRow, int nbCol) {
-        super("GameOfLife");
 
         _cells = new GameOfLifeLabel[nbRow+2][nbCol+2];
         for(int r = 0; r < nbRow+2; r++) {
@@ -68,22 +67,11 @@ public class GameofLife  extends JFrame implements ActionListener {
 
         add(panel, BorderLayout.SOUTH);
         setLocation(20, 20);
-        pack();
         setVisible(true);
         _timer = new Timer(100, this);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
-    public synchronized void actionPerformed(ActionEvent e) {
-        Object o = e.getSource();
-        if(o == _startButton) {
-            _startButton.setEnabled(false);
-            _gameRunning = true;
-            _timer.setDelay(100);
-            _timer.start();
-            return;
-        }
-
+    private void updateBoard() {
         _timer.setDelay(100);
         _timer.start();
 
@@ -103,11 +91,27 @@ public class GameofLife  extends JFrame implements ActionListener {
         }
     }
 
+    public synchronized void actionPerformed(ActionEvent e) {
+        Object o = e.getSource();
+        if(o == _startButton) {
+            _startButton.setEnabled(false);
+            _gameRunning = true;
+            _timer.setDelay(100);
+            _timer.start();
+            return;
+        }
+
+        updateBoard();
+    }
+
     public static void main(String[] arg) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new GameofLife(NUM_COLS, NUM_ROWS);
-            }
-        });
+        JFrame mainFrame = new JFrame();
+        mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        mainFrame.setSize(1280, 720);
+
+        GameofLife gameofLife = new GameofLife(NUM_COLS, NUM_ROWS);
+        mainFrame.add(gameofLife);
+
+        mainFrame.setVisible(true);
     }
 }
