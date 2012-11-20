@@ -8,6 +8,11 @@ import java.util.List;
 public class SerializePlayerInformation {
 
     private static final int NUM_PLAYER_SCORES_TO_STORE = 10;
+    private static final String SCORES_FILE = "scores.dat";
+
+    public static ArrayList<PlayerHighScoreInformation> retrievePlayerHighScoreInformation() {
+        return retrievePlayerHighScoreInformation(SCORES_FILE);
+    }
 
     public static ArrayList<PlayerHighScoreInformation> retrievePlayerHighScoreInformation(String fileName) {
         Object deserializedHighScores = new ArrayList<PlayerHighScoreInformation>();
@@ -24,6 +29,10 @@ public class SerializePlayerInformation {
         }
 
         return (ArrayList<PlayerHighScoreInformation>) deserializedHighScores;
+    }
+
+    public static void storePlayerHighScoreInformation(ArrayList<PlayerHighScoreInformation> highScores) {
+        storePlayerHighScoreInformation(highScores, SCORES_FILE);
     }
 
     public static void storePlayerHighScoreInformation(ArrayList<PlayerHighScoreInformation> highScores, String fileName) {
@@ -44,6 +53,14 @@ public class SerializePlayerInformation {
         catch (IOException ioe) {
             ioe.printStackTrace();
         }
+    }
 
+    public static void savePlayerHighScoreInformation(PlayerHighScoreInformation highScore) {
+        ArrayList<PlayerHighScoreInformation> players = retrievePlayerHighScoreInformation();
+        players.add(highScore);
+        players = SortPlayerInformation.sortByScore(players);
+        if (players.size() > 10)
+            players = (ArrayList<PlayerHighScoreInformation>) players.subList(0, 10);
+        storePlayerHighScoreInformation(players);
     }
 }

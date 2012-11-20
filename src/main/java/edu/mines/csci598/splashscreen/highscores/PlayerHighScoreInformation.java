@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImagingOpException;
+import java.beans.Transient;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -16,14 +17,12 @@ public class PlayerHighScoreInformation implements Serializable {
 
     private ImageIcon _playerImage;
     private String _playerInitials;
-    private double _playerScore;
-    private long _playerTime;
+    private long _playerScore;
 
-    public PlayerHighScoreInformation(String playerInitials, double playerScore, ImageIcon playerImage, long playerTime) {
+    public PlayerHighScoreInformation(String playerInitials, long playerScore, ImageIcon playerImage) {
         _playerInitials = playerInitials;
         _playerScore = playerScore;
         _playerImage = playerImage;
-        _playerTime = playerTime;
     }
 
     public ImageIcon getPlayerImage() {
@@ -42,22 +41,13 @@ public class PlayerHighScoreInformation implements Serializable {
         this._playerInitials = playerInitials;
     }
 
-    public double getPlayerScore() {
+    public long getPlayerScore() {
         return _playerScore;
     }
 
-    public void setPlayerScore(double playerScore) {
+    public void setPlayerScore(long playerScore) {
         this._playerScore = playerScore;
     }
-
-    public long getPlayerTime() {
-        return _playerTime;
-    }
-
-    public void setPlayerTime(long playerTime) {
-        this._playerTime = playerTime;
-    }
-
 
     public static Comparator<PlayerHighScoreInformation> playerInitialsComporator
             = new Comparator<PlayerHighScoreInformation>() {

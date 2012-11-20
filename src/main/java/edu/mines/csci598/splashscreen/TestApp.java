@@ -35,7 +35,7 @@ public class TestApp extends JFrame {
 
         for (PlayerHighScoreInformation player : getPlayerHighScores()) {
             label = new JLabel();
-            label.setText(player.getPlayerInitials() + " " + player.getPlayerScore() + " " + player.getPlayerTime());
+            label.setText(player.getPlayerInitials() + " " + player.getPlayerScore());
             panel.add(label);
             label = new JLabel(player.getPlayerImage());
             panel.add(label);
@@ -70,6 +70,6 @@ public class TestApp extends JFrame {
     }
 
     private List<PlayerHighScoreInformation> getPlayerHighScores() {
-        return SerializePlayerInformation.retrievePlayerHighScoreInformation("testMultiplePlayer.dat");
+        return SerializePlayerInformation.retrievePlayerHighScoreInformation();
     }
 }

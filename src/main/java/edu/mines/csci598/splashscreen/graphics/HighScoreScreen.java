@@ -56,15 +56,15 @@ public class HighScoreScreen extends JPanel {
 	private ArrayList<PlayerHighScoreInformation> getTop10Scores() {
 		ArrayList<PlayerHighScoreInformation> highScores = new ArrayList<PlayerHighScoreInformation>();
 		
-		highScores.add(new PlayerHighScoreInformation("ABC", 40000, null, 0));
-        highScores.add(new PlayerHighScoreInformation("DEF", 10000, null, 0));
-        highScores.add(new PlayerHighScoreInformation("ABC", 9100, null, 0));
-        highScores.add(new PlayerHighScoreInformation("DED", 8850, null, 0));
-        highScores.add(new PlayerHighScoreInformation("4EV", 7560, null, 0));
-        highScores.add(new PlayerHighScoreInformation("LOL", 6540, null, 0));
-        highScores.add(new PlayerHighScoreInformation("XXD", 5040, null, 0));
-        highScores.add(new PlayerHighScoreInformation("AHA", 4020, null, 0));
-        highScores.add(new PlayerHighScoreInformation("XOR", 4010, null, 0));
+		highScores.add(new PlayerHighScoreInformation("ABC", 40000, null));
+        highScores.add(new PlayerHighScoreInformation("DEF", 10000, null));
+        highScores.add(new PlayerHighScoreInformation("ABC", 9100, null));
+        highScores.add(new PlayerHighScoreInformation("DED", 8850, null));
+        highScores.add(new PlayerHighScoreInformation("4EV", 7560, null));
+        highScores.add(new PlayerHighScoreInformation("LOL", 6540, null));
+        highScores.add(new PlayerHighScoreInformation("XXD", 5040, null));
+        highScores.add(new PlayerHighScoreInformation("AHA", 4020, null));
+        highScores.add(new PlayerHighScoreInformation("XOR", 4010, null));
 		
 		return highScores;
 	}
