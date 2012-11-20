@@ -19,7 +19,9 @@ public class TwitterMessages implements SocialMessages {
 
     @Override
     public String retrieveLatestMessage() {
-        return retrieveAllMessages().get(0);
+        if (!retrieveAllMessages().isEmpty())
+            return retrieveAllMessages().get(0);
+        return null;
     }
 
     public ArrayList<String> retrieveAllMessages() {
