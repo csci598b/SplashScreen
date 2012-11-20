@@ -9,7 +9,7 @@ public class GameOfLifeLabel extends JLabel implements MouseListener {
     private boolean mouseDown = false;
     static final int size = 15;
     static final Dimension dim = new Dimension(size, size);
-    static final Color[] color = {Color.LIGHT_GRAY, Color.BLUE};
+    static final Color[] color = {Color.DARK_GRAY, Color.LIGHT_GRAY};
     private int state, newState;
     private int howManyNeighbor;
     private GameOfLifeLabel[] neighbour = new GameOfLifeLabel[8];

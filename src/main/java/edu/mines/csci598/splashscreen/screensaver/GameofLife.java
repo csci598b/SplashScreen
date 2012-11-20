@@ -12,14 +12,11 @@ public class GameofLife  extends JPanel implements ActionListener {
     private Timer _timer;
     private static final int NUM_ROWS = 50;
     private static final int NUM_COLS = 50;
-
-    private int generation = 0;
-    private JLabel _generationLabel = new JLabel("Generation: 0");
-    private JButton _startButton = new JButton("Go");
-    private boolean _gameRunning = false;
-
+    private boolean _isDone;
+    private int _genNumber;
 
     GameofLife(int nbRow, int nbCol) {
+        _genNumber = 0;
 
         _cells = new GameOfLifeLabel[nbRow+2][nbCol+2];
         for(int r = 0; r < nbRow+2; r++) {
@@ -58,50 +55,44 @@ public class GameofLife  extends JPanel implements ActionListener {
 
         add(panel, BorderLayout.CENTER);
         panel = new JPanel(new GridLayout(1,3));
-        JPanel buttonPanel = new JPanel(new GridLayout(1,3));
-        _startButton.addActionListener(this);
-        buttonPanel.add(_startButton);
-        panel.add(buttonPanel);
-        _generationLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        panel.add(_generationLabel);
 
         add(panel, BorderLayout.SOUTH);
         setLocation(20, 20);
         setVisible(true);
         _timer = new Timer(100, this);
+        _timer.start();
+        updateBoard();
     }
 
     private void updateBoard() {
-        _timer.setDelay(100);
-        _timer.start();
+        _genNumber++;
+        for (GameOfLifeLabel[] labelsToCheck : _cells) {
+            for (GameOfLifeLabel checkedLabel : labelsToCheck) {
+                checkedLabel.checkState();
+            }
+        }
+        for (GameOfLifeLabel[] labels : _cells) {
+            for (GameOfLifeLabel label : labels) {
+                label.updateState();
+            }
+        }
 
-        if(!_gameRunning)
-            return;
-        ++generation;
-        _generationLabel.setText("Generation: " + generation);
-        for (GameOfLifeLabel[] aLabel1 : _cells) {
-            for (GameOfLifeLabel anALabel1 : aLabel1) {
-                anALabel1.checkState();
-            }
-        }
-        for (GameOfLifeLabel[] aLabel : _cells) {
-            for (GameOfLifeLabel anALabel : aLabel) {
-                anALabel.updateState();
-            }
-        }
+        if (_genNumber > 300)
+            setIsDone(true);
     }
 
     public synchronized void actionPerformed(ActionEvent e) {
         Object o = e.getSource();
-        if(o == _startButton) {
-            _startButton.setEnabled(false);
-            _gameRunning = true;
-            _timer.setDelay(100);
-            _timer.start();
-            return;
-        }
-
+        _timer.start();
         updateBoard();
+    }
+
+    public boolean isDone() {
+        return _isDone;
+    }
+
+    private void setIsDone(boolean val) {
+        _isDone = val;
     }
 
     public static void main(String[] arg) {
