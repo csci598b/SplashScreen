@@ -1,5 +1,7 @@
 package edu.mines.csci598.splashscreen.graphics;
 
+import javax.swing.*;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Andrew
@@ -7,5 +9,5 @@ package edu.mines.csci598.splashscreen.graphics;
  * Time: 4:17 PM
  * To change this template use File | Settings | File Templates.
  */
-public class InstructionsHeader {
+public class InstructionsHeader extends JPanel {
 }

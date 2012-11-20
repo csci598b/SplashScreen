@@ -5,8 +5,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class GameOfLifeLabel extends JLabel implements MouseListener {
-    private boolean mouseDown = false;
+public class GameOfLifeLabel extends JLabel {
     static final int size = 15;
     static final Dimension dim = new Dimension(size, size);
     static final Color[] color = {Color.DARK_GRAY, Color.LIGHT_GRAY};
@@ -18,7 +17,6 @@ public class GameOfLifeLabel extends JLabel implements MouseListener {
         state = newState = 0;
         setOpaque(true);
         setBackground(color[0]);
-        addMouseListener(this);
         this.setPreferredSize(dim);
     }
 
@@ -53,30 +51,6 @@ public class GameOfLifeLabel extends JLabel implements MouseListener {
     void setState() {
         state = 1;
         setBackground(color[state]);
-    }
-
-    public void mouseEntered(MouseEvent arg0) {
-        if(mouseDown) {
-            state = newState = 1;
-            setBackground(color[1]);
-        }
-    }
-
-    public void mousePressed(MouseEvent arg0) {
-        mouseDown = true;
-        state = newState = 1;
-        setBackground(color[1]);
-    }
-    // turn off the fact that the cell is down
-    public void mouseReleased(MouseEvent arg0) {
-        mouseDown = false;
-    }
-
-    @Override
-    public void mouseExited(MouseEvent arg0) {
-    }
-    @Override
-    public void mouseClicked(MouseEvent arg0) {
     }
 
 }
