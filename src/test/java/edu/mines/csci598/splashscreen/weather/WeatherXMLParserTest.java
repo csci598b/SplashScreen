@@ -18,17 +18,31 @@ import static junit.framework.Assert.assertEquals;
  * To change this template use File | Settings | File Templates.
  */
 public class WeatherXMLParserTest {
-    InputStream weatherStream;
+    InputStream _weatherStream;
+    InputStream _badWeatherStream;
 
     @Before
     public void setup() throws IOException {
-        weatherStream = getClass().getResourceAsStream("weather.xml");
+        _weatherStream = getClass().getResourceAsStream("weather.xml");
+        _badWeatherStream = getClass().getResourceAsStream("weather-missing.xml");
     }
 
     @Test
     public void testParseXMLFile() throws IOException, SAXException, ParserConfigurationException {
-        WeatherInformation information = LocalAreaWeather.parseWeatherXML(weatherStream);
+        WeatherInformation information = LocalAreaWeather.parseWeatherXML(_weatherStream);
         assertEquals(11, information.getTemperature());
+        assertEquals(0.0, information.getPrecipitation());
+        assertEquals(47, information.getHumidity());
+        assertEquals(360, information.getWindDegree());
+        assertEquals(9, information.getWindSpeed());
+        assertEquals(10, information.getVisibility());
+        assertEquals(1019, information.getPressure());
+        assertEquals(0, information.getCloudCover());
+    }
+
+    @Test
+    public void testParseIncompleteXMLFile() throws IOException, SAXException, ParserConfigurationException {
+        WeatherInformation information = LocalAreaWeather.parseWeatherXML(_badWeatherStream);
         assertEquals(0.0, information.getPrecipitation());
         assertEquals(47, information.getHumidity());
         assertEquals(360, information.getWindDegree());
