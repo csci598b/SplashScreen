@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class GameOfLifeLabel extends JLabel {
+
     static final int size = 15;
     static final Dimension dim = new Dimension(size, size);
     static final Color[] color = {Color.DARK_GRAY, Color.LIGHT_GRAY};
@@ -26,19 +27,24 @@ public class GameOfLifeLabel extends JLabel {
 
     void checkState() {
         int howManyLive = 0;
+
         for(int i = 0; i < howManyNeighbor; i++)
             howManyLive += neighbour[i].state;
-        // newState
+
         if(state == 1) {
-            if(howManyLive < 2)
-                newState = 0;
-            if(howManyLive > 3)
-                newState = 0;
+            checkLivingNeighborsToDetermineState(howManyLive);
         }
         else {
             if(howManyLive == 3)
                 newState = 1;
         }
+    }
+
+    private void checkLivingNeighborsToDetermineState(int howManyLive) {
+        if(howManyLive < 2)
+            newState = 0;
+        if(howManyLive > 3)
+            newState = 0;
     }
 
     void updateState() {
@@ -48,9 +54,9 @@ public class GameOfLifeLabel extends JLabel {
         }
     }
 
-    void setState() {
+    public void setState() {
         state = 1;
-        setBackground(color[state]);
+        setBackground(Color.LIGHT_GRAY);
     }
 
 }
