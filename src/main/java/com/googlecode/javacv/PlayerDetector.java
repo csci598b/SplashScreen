@@ -14,7 +14,7 @@ public class PlayerDetector extends Thread{
     Polygon _area;
     boolean _inWatchedArea;
     Thread _areaWatcher;
-    PlayerDetector _finder;
+    ObjectFinder _finder;
     
     PlayerDetector(){
         _inWatchedArea = false;
@@ -58,7 +58,7 @@ public class PlayerDetector extends Thread{
         // Get vectors from point representing each leg
         for( int i = 0; i< numberLegs; i++ ){
             if( _area.inside( (int)legs[i], (int)legs[i+1] ) ){
-                
+                oneLegIn = true;
             }
         }
         
